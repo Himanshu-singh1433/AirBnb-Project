@@ -1,0 +1,14 @@
+# Node modules (bahut bada folder hota hai, isko push nahi karna)
+node_modules/
+
+# Environment variables (isme secret keys / DB passwords hote hain)
+.env
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+Thumbs.db
