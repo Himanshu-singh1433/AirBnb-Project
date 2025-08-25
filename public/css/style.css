@@ -68,13 +68,28 @@ body {
 .card-body{
     padding: 0 !important;
 }
-.card-text p {
-    font-weight: 400;
+
+.card-text p{
+    font-weight: 400 !important;
+    
+
 }
 
+/* .card-body :hover{
+    font-weight: 400 !important;
+    color:black!important;
+
+} */
+
 .listing-link{
-    text-decoration: none;
-    color: black;
+    /* text-decoration:none !important; */
+    color:black !important;
+     text-decoration:none ;
+}
+
+.listing-link:hover{
+ text-decoration:none !important;
+    color:black;
 }
 
 /* card effect */
@@ -101,9 +116,20 @@ body {
 }
 
 .image-wrapper:hover .card-image {
-    opacity: 1;
+    opacity: 0.2 !important;
+    background-color: #ededed;
 }
 
+.card-img-overlay{
+    opacity: 0 !important;
+  
+    
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2 !important;
+    background-color: #ededed;
+}
 /* new page */
 
 .add-btn{

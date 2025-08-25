@@ -1,45 +1,44 @@
 <% layout("/layouts/boilerplate") %>
 
-    <body>
-        <div class="row">
-            <div class="col-8 offset-2">
-                <h3>Listing Details: </h3>
-            </div>
-            <div class="card col-6 offset-2">
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3> <%= listing.title %></h3>
+    </div>
+    <div class="card col-6 offset-2">
+      <% if (listing.image && listing.image.url) { %>
+      <img
+        src="<%= listing.image.url %>"
+        class="card-img-top show-image"
+        alt="listing_image"
+      />
+      <% } else { %>
+      <p>No image available</p>
+      <% } %>
 
-                <% if (listing.image && listing.image.url) { %>
-                    <img src="<%= listing.image.url %>" class="card-img-top show-image" alt="listing_image">
-                    <% } else { %>
-                        <p>No image available</p>
-                        <% } %>
+      <div class="card-body">
+        <p class="card-text">
+          <br />
+          <%=listing.description %> <br />
+          &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") :
+          "N/A" %> <br />
 
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <b>
-                                        <%= listing.title %>
-                                    </b> <br>
-                                    <%=listing.description %> <br>
-                                        &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> <br>
+          <%=listing.location %> <br />
+          <%=listing.country %> <br />
+        </p>
+      </div>
+    </div>
+    <br />
+    <div class="btns">
+      <a
+        href="/listings/<%= listing._id %>/edit"
+        class="btn btn-dark col-1 offset-2 edit-btn"
+        >Edit
+      </a>
 
-                                            <%=listing.location %> <br>
-                                                <%=listing.country %> <br>
-
-
-
-
-                                </p>
-                            </div>
-            </div>
-            <br>
-            <div class="btns">
-                <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-2 edit-btn">Edit </a>
-
-
-                <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-                    <button type="submit" class="btn btn-dark offset-4">Delete </button>
-                </form>
-
-            </div>
-        </div>
-
-    </body>
+      <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+        <button type="submit" class="btn btn-dark offset-4">Delete</button>
+      </form>
+    </div>
+  </div>
+</body>
