@@ -117,8 +117,10 @@ app.use((err, req, res, next) => {
   //   res.status(statusCode).send(message);
   res.status(statusCode).render("error.ejs", { err });
 });
-app.listen(5500, () => {
-  console.log("Sever is listening to port 5500");
+const port = process.env.PORT || 5500;
+app.listen(port, () => {
+  console.log(`✅ Server is listening on port ${port}`);
 });
+
 
 
